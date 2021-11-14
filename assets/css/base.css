@@ -1,0 +1,118 @@
+:root{
+    --white-color: #fff;
+    --black-color: #000;
+    --primary-color: #ff4d00;
+    --text-color: #333;
+    --border-color: #dbdbdb;
+
+    --headr-height: 120px;
+    --narbar-height: 34px;
+    --header-with-search-height: calc(var(--headr-height) - var(--narbar-height));
+}
+
+*{
+    box-sizing: inherit;
+}
+
+html{
+    /* 10px */
+    font-size: 62.5%;
+    line-height: 1.6rem;
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+}
+
+.dis_none{
+    display: none;
+}
+
+.grid {
+    width: 1200px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.grid__full-width{
+    width: 100%;
+}
+
+.grid__row{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* Button style */
+.btn{
+    min-width: 142px;
+    height: 34px;
+    text-decoration: none;
+    border: none;
+    border-radius: 3px;
+    font-size: 1.4rem;
+    align-items: center;
+    padding: 0;
+    cursor: pointer;
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn.btn--primary{
+    color: var(--white-color);
+    background-color: var(--primary-color);
+}
+
+.btn.btn--disable{
+    color: #ccc;
+    cursor: default;
+    background-color: gray;
+}
+
+/* Animation */
+@keyframes fadeIn{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+
+@keyframes growth{
+    from{
+        transform: scale(var(--growth-form));
+    }
+    to{
+        transform: scale(var(--growth-to));
+    }
+}
+
+/* Modal */
+.modal{
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: none;
+    animation: fadeIn linear 0.2s;
+}
+
+.modal__overlay{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);  
+}
+
+.modal__body{  
+    --growth-form: 0.6;
+    --growth-to: 1;
+    background: var(--white-color);
+    margin: auto;
+    position: relative;
+    z-index: 100;
+    border-radius: 10px;
+    animation: growth linear 0.2s;
+}
